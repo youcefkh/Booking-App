@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-4 cart-container">
+    <div class="col-md-4 cart-container pl-md-2">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h4 class="text-secondary">
                 <i class="fas fa-shopping-cart"></i>

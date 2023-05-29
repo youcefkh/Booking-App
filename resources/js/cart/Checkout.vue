@@ -1,9 +1,9 @@
 <template>
-    <div class="col-md-8">
+    <div class="col-md-8 pr-md-2">
         <h4 class="mb-3 font-weight-bolder">Billing address</h4>
         <form class="needs-validation" novalidate>
             <div class="row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 pr-md-2">
                     <label for="firstName">First name</label>
                     <input
                         type="text"
@@ -17,7 +17,7 @@
                         {{errorFor('customer.first_name')}}
                     </div>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 pl-md-2">
                     <label for="lastName">Last name</label>
                     <input
                         type="text"
@@ -86,7 +86,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-5 mb-3">
+                <div class="col-md-5 mb-3 pr-md-2">
                     <label for="country">Country</label>
                     <input
                         type="text"
@@ -100,7 +100,7 @@
                         {{errorFor('customer.country')}}
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-3 pr-md-2">
                     <label for="city">City</label>
                     <input
                         type="text"
@@ -197,7 +197,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 pr-md-2">
                     <label for="cc-name">Name on card</label>
                     <input
                         type="text"
@@ -212,7 +212,7 @@
                     >
                     <div class="invalid-feedback">{{errorFor('customer.name_on_card')}}</div>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 pl-md-2">
                     <label for="cc-number">Credit card number</label>
                     <input
                         type="text"
@@ -228,7 +228,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-3 pr-md-2">
                     <label for="cc-expiration">Expiration</label>
                     <input
                         type="date"
@@ -240,7 +240,7 @@
                     />
                     <div class="invalid-feedback">{{errorFor('customer.card_expiration')}}</div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-3 pl-md-2">
                     <label for="cc-expiration">CVV</label>
                     <input
                         type="text"

@@ -84,7 +84,7 @@ export default {
         move(e){
             
             if(e.target.classList.contains("zoomed")){
-                const x = (e.clientX - e.target.getBoundingClientRect().left)/2; //divide by beacause scale = 2
+                const x = (e.clientX - e.target.getBoundingClientRect().left)/2; //divide by 2 beacause scale = 2
                 const y = (e.clientY - e.target.getBoundingClientRect().top)/2;
                 e.target.style.transformOrigin = x+'px '+y+'px';
             }
@@ -120,14 +120,14 @@ export default {
     width: 80%;
     height: 80%;
     display: flex;
-    align-items: center;
     justify-content: flex-start;
 }
 .container-slides .image {
-    width: 100% !important;
-    min-height: 100% !important;
+    min-width: 100%;
+    min-height: 100%;
     transition: transform 0.7s ease-in;
     cursor: zoom-in;
+    object-fit: cover;
 }
 .arrow {
     height: 50px;

@@ -2,9 +2,9 @@
     <div>
         <success v-if="success">Your purchase has been successfull</success>
         <div class="row" v-else>
-            <checkout :bookings="bookings" @success="showSuccess"/>
+            <cart-list class="order-md-2 mb-5" />
+            <checkout :bookings="bookings" @success="showSuccess" class="order-md-1"/>
 
-            <cart-list />
         </div>
     </div>
 </template>
