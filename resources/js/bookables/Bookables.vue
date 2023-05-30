@@ -5,7 +5,7 @@
         </div>
         <div class="row" v-else>
             <div
-                class="col-lg-4 col-md-6"
+                class="col-lg-4 col-md-6 p-2"
                 v-for="bookable in bookables.data"
                 :key="'bookable' + bookable.id"
             >

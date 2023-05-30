@@ -4,7 +4,15 @@
 
         <div>
             <div class="menu p-5">
-                <ul class="d-flex justify-content-start align-items-center mb-0 pl-0">
+                <ul
+                    class="
+                        d-flex
+                        justify-content-start
+                        align-items-center
+                        mb-0
+                        pl-0
+                    "
+                >
                     <li
                         @click="content = 'posts'"
                         :class="{ 'bg-white active': content == 'posts' }"
@@ -26,18 +34,32 @@
                 </ul>
                 <div class="content p-4">
                     <div v-if="!loading">
-
-                        <div class="posts" v-if="content == 'posts'" >
-                            <div class="m-auto" v-show="!bookables.data">
-                                <p class="text-muted">You haven't post anything yet</p>
+                        <div class="posts" v-if="content == 'posts'">
+                            <div
+                                class="m-auto"
+                                v-show="bookables.data.length == 0"
+                            >
+                                <div class="alert alert-info" role="alert">
+                                    You haven't posted anything yet
+                                </div>
                             </div>
                             <div class="row">
-                                <div v-for="bookable in bookables.data" :key="'bookable' + bookable.id" class="col-lg-6">
+                                <div
+                                    v-for="bookable in bookables.data"
+                                    :key="'bookable' + bookable.id"
+                                    class="col-lg-6"
+                                >
                                     <bookable-list-item :item="bookable" />
                                 </div>
                             </div>
-                            
-                            <pagination :data="bookables" :limit="2" :align="'center'" @pagination-change-page="getBookables" class="row"></pagination>
+
+                            <pagination
+                                :data="bookables"
+                                :limit="2"
+                                :align="'center'"
+                                @pagination-change-page="getBookables"
+                                class="row"
+                            ></pagination>
                         </div>
 
                         <div class="infos" v-else-if="content == 'infos'">
@@ -45,18 +67,29 @@
                         </div>
 
                         <div class="favs" v-else>
-                            <div class="m-auto" v-show="!favorites.data">
-                                <p class="text-muted">Your favorites list is empty</p>
+                            <div class="m-auto" v-show="favorites.data.length == 0">
+                                <div class="alert alert-info" role="alert">
+                                    You don't have any favorite posts
+                                </div>
                             </div>
-                            <div class="row">
-                                <div v-for="bookable in favorites.data" :key="'favorite' + bookable.id" class="col-lg-6">
+                            <div class="row justify-content-around">
+                                <div
+                                    v-for="bookable in favorites.data"
+                                    :key="'favorite' + bookable.id"
+                                    class="col-md-5"
+                                >
                                     <bookable-list-item :item="bookable" />
                                 </div>
                             </div>
 
-                            <pagination :data="favorites" :limit="2" :align="'center'" @pagination-change-page="getFavorites" class="row"></pagination>
+                            <pagination
+                                :data="favorites"
+                                :limit="2"
+                                :align="'center'"
+                                @pagination-change-page="getFavorites"
+                                class="row"
+                            ></pagination>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -65,9 +98,9 @@
 </template>
 
 <script>
-import BookableListItem from '../bookables/BookableListItem.vue';
+import BookableListItem from "../bookables/BookableListItem.vue";
 import Banner from "../profile/Banner.vue";
-import Credentials from '../profile/Credentials.vue';
+import Credentials from "../profile/Credentials.vue";
 export default {
     components: { Banner, BookableListItem, Credentials },
     data() {
@@ -79,40 +112,44 @@ export default {
         };
     },
 
-    methods:{
-        getBookables(page = 1){
+    methods: {
+        getBookables(page = 1) {
             this.loading = true;
             const id = this.$route.params.id;
-            axios.get(`/api/users/${id}/bookables?page=${page}`)
-            .then((result) => {
-                if(result.status == 200 && result.data.data){
-                    this.bookables = result.data
-                    this.loading = false
-                }
-            }).catch((err) => {
-                console.log(err)
-            });
+            axios
+                .get(`/api/users/${id}/bookables?page=${page}`)
+                .then((result) => {
+                    if (result.status == 200 && result.data.data) {
+                        this.bookables = result.data;
+                        this.loading = false;
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         },
 
-        getFavorites(page = 1){
+        getFavorites(page = 1) {
             this.loading = true;
             const id = this.$route.params.id;
-            axios.get(`/api/users/${id}/favorites?page=${page}`)
-            .then((result) => {
-                if(result.status == 200 && result.data.data){
-                    this.favorites = result.data
-                    this.loading = false
-                }
-            }).catch((err) => {
-                console.log(err)
-            });
-        }
+            axios
+                .get(`/api/users/${id}/favorites?page=${page}`)
+                .then((result) => {
+                    if (result.status == 200 && result.data.data) {
+                        this.favorites = result.data;
+                        this.loading = false;
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        },
     },
 
-    mounted(){
-        this.getBookables()
-        this.getFavorites()
-    }
+    mounted() {
+        this.getBookables();
+        this.getFavorites();
+    },
 };
 </script>
 
@@ -120,7 +157,7 @@ export default {
 .banner {
     margin-bottom: 80px;
 }
-.content{
+.content {
     position: relative;
     background: #fff;
     box-shadow: -2px 2px 11px 0px #c6c1c1ab;
@@ -139,10 +176,10 @@ li {
     font-size: 1rem;
     z-index: 1;
 }
-li.active{
+li.active {
     box-shadow: rgb(198 193 193 / 67%) -7px -1px 11px 0px;
 }
-li.active::after{
+li.active::after {
     content: "";
     position: absolute;
     bottom: -1px;
