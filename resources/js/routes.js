@@ -1,7 +1,7 @@
 import {isLoggedIn} from './shared/utils/auth'
 import store from './store'
 import VueRouter from 'vue-router'
-import ExampleComponent from './components/ExampleComponent'
+import Home from './home';
 import Bookables from './bookables/Bookables.vue'
 import Bookable from './bookable/Bookable.vue'
 import Review from './review/Review.vue'
@@ -13,7 +13,7 @@ import Profile from './profile/Profile.vue'
 const routes = [
     {
         path: "/",
-        component: ExampleComponent,
+        component: Home,
         name: "home"
     },
     {
