@@ -1,5 +1,5 @@
 <template>
-    <div class="row py-4 position-relative">
+    <div class="banner-wrapper row pt-4 position-relative">
         <div class="col-md-6 position-relative">
             <h2 class="font-weight-bolder display-3">
                 Hotels, villas & much more
@@ -39,6 +39,9 @@ export default {
 </script>
 
 <style scoped>
+.banner-wrapper {
+  padding-bottom: 60px;
+}
 .blob {
   position: absolute;
   width: 500px;
@@ -73,7 +76,7 @@ export default {
   }
 
   to {
-    transform: translate(-500px, 150px) rotate(-10deg);
+    transform: translate(-500px, 0) rotate(-10deg);
     border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
   }
 }
@@ -85,14 +88,14 @@ export default {
   }
 
   to {
-    transform: translate(-500px, 150px) rotate(-10deg);
+    transform: translate(-500px, 0) rotate(-10deg);
     border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
   }
 }
 
 .hero-form {
     position: absolute;
-    bottom:-60px;
+    bottom: 0px;
     left: 0;
 }
 </style>
