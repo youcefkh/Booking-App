@@ -275,6 +275,16 @@ export default {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+/* zoom in */
+.section-thumbnail:hover img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
 }
 
 .arrows {
