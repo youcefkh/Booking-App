@@ -176,8 +176,11 @@ export default {
 
             if (Math.floor(scrollWidth - newScrollLeft) == width) {
                 this.scrollRightEnd = true;
+                this.scrollLeftEnd = false;
             } else if (newScrollLeft == 0) {
                 this.scrollLeftEnd = true;
+                this.scrollRightEnd = false;
+
             } else {
                 this.scrollRightEnd = false;
                 this.scrollLeftEnd = false;
