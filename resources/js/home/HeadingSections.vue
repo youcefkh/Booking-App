@@ -132,9 +132,9 @@ export default {
             //trigger snap scroll
             if (newScrollLeft % sectionWidth >= sectionWidth / 2) {
                 this.$refs.slider.scrollLeft +=
-                    sectionWidth - (newScrollLeft % sectionWidth); //scroll to right when half of the section is hidden
+                    sectionWidth - (newScrollLeft % sectionWidth); //scroll when half of the section is hidden
             } else {
-                this.$refs.slider.scrollLeft -= newScrollLeft % sectionWidth; //scroll to left
+                this.$refs.slider.scrollLeft -= newScrollLeft % sectionWidth; //cancel scroll
             }
 
             //delay because of the scroll sooth behavior
